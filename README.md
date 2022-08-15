@@ -37,7 +37,7 @@ As urls das gateways devem ser alteradas nos arquivos
 
 # Backend Biosite
 
-### Estrutura de uma aplicação API com Gateway e CQRS
+### Baixe aqui o projeto backend
 https://github.com/carlosrogerioinfo/biosite-project-backend
 
 O projeto **Biosite** é um exemplo de estrutura de aplicação distribuída com utilização de **API**, **Gateways** para isolamento das APIs, possui uma implementação funcional do uso do **CRQS** (Command Query Responsibility Segregation), uso de **VO** (Value Objects) e uso de **Notification Pattern** e muito mais, este projeto tem a intenção de servir de modelo para desenvolvedores iniciantes que estão aprendendo desenvolvimento de backends com comunicação entre APIs via gateway na plataforma Asp.Net Core usando linguagem C#.
