@@ -71,5 +71,6 @@ Biomarcadores listagem
 ![image](https://user-images.githubusercontent.com/72615280/184629373-7fe00baf-384e-49e1-9193-4389021cbdd1.png)
 
 Biomarcadores inclusão/alteração
-![image](https://user-images.githubusercontent.com/72615280/184629411-cb876c7b-c6b0-409b-95a8-1a6c5a3ab2f8.png)
+![image](https://user-images.githubusercontent.com/72615280/184629463-c273c98a-0dcd-4fae-892d-1fb31f4ffb5f.png)
+
 
