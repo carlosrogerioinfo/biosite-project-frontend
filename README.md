@@ -1,6 +1,6 @@
 # Biosite
 
-Para acessar, clique aqui: https://biosite-dashboard.vercel.app/login <br/>
+Para acessar, clique aqui: https://biosite-dashboard.vercel.app/ <br/>
 
 #### Dados para login:<br/>
 
