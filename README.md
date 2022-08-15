@@ -79,7 +79,7 @@ E-mail: carlosrogerio.info@gmail.com <br/>
 ![image](https://user-images.githubusercontent.com/72615280/184629316-e9016a13-cb94-4ee5-9e74-a96de53e7a45.png)
 
 **Biomarcadores listagem**
-![image](https://user-images.githubusercontent.com/72615280/184629373-7fe00baf-384e-49e1-9193-4389021cbdd1.png)
+![image](https://user-images.githubusercontent.com/72615280/184631081-045a9f9c-0305-4318-a786-f2e8b6827f7c.png)
 
 **Biomarcadores inclusão/alteração**
 ![image](https://user-images.githubusercontent.com/72615280/184629463-c273c98a-0dcd-4fae-892d-1fb31f4ffb5f.png)
