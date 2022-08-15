@@ -26,6 +26,15 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
+## Variáveis de Ambiente
+
+As urls das gateways devem ser alteradas nos arquivos 
+**environment.prod.ts**
+**environment.ts**
+
+![image](https://user-images.githubusercontent.com/72615280/184627551-9c01c62d-26c1-474f-b65e-d6dd4e84e6df.png)
+
+
 # Backend Biosite
 
 ### Estrutura de uma aplicação API com Gateway e CQRS
