@@ -45,10 +45,10 @@ https://github.com/carlosrogerioinfo/biosite-project-backend
 Para este projeto foi usado o banco de dados SQL Server, mas não se preocupe, eu vou te passar um serviço de hospedagem onde tanto o banco de dados SQL server quanto serviço de hospedagem de aplicações asp.net e asp.net core são gratuítos. Basta você cadastrar sua conta criar seu database e executar os scripts que estão no projeto.
 
 ### Script I - Criação das tabelas <br/>
-https://github.com/carlosrogerioinfo/biosite-api-gateway-sample/blob/main/script-database/script-criacao-tabelas.sql
+https://github.com/carlosrogerioinfo/biosite-project-backend/blob/main/script-database/script-criacao-tabelas.sql
 
 ### Script II - Inclusão de registros nas tabelas <br/>
-https://github.com/carlosrogerioinfo/biosite-api-gateway-sample/blob/main/script-database/script-inclusao-dados.sql
+https://github.com/carlosrogerioinfo/biosite-project-backend/blob/main/script-database/script-inclusao-dados.sql
 
 
 ## Hospedagem gratuita (Asp.Net Core / SQL Server)
