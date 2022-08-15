@@ -1,0 +1,222 @@
+<div class="grid">
+    <div class="col-12">
+        <div class="card px-6 py-6">
+            <p-toast></p-toast>
+            <p-toolbar styleClass="mb-4">
+                <ng-template pTemplate="left">
+                    <div class="my-2">
+                    <!-- <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block"></p-fileUpload> -->
+                    <!-- <button disabled pButton pRipple label="Exportar" icon="pi pi-upload" class="p-button-help" (click)="dt.exportCSV()"></button> -->
+                    </div>
+                </ng-template>
+
+                <ng-template pTemplate="right">
+                    <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+                    <button pButton pRipple label="Excluir" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedBiomarkers()" [disabled]="!selectedBiomarkers || !selectedBiomarkers.length"></button>
+                    </ng-template>
+            </p-toolbar>
+
+            <p-table #dt [value]="biomarkers" [columns]="cols" responsiveLayout="scroll" [rows]="10" [globalFilterFields]="['name','description','unity']" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[10,20,30]" [showCurrentPageReport]="true" currentPageReportTemplate="Exibindo de {first} até {last} de {totalRecords} registros cadastrados" [(selection)]="selectedBiomarkers" selectionMode="multiple" [rowHover]="true" dataKey="id">
+                <ng-template pTemplate="caption">
+                    <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+                        <h5 class="m-0">Biomarcadores cadastrados</h5>
+                        <span class="block mt-2 md:mt-0 p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="onGlobalFilter(dt, $event)" placeholder="Pesquisar..."  class="w-full sm:w-auto"/>
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                        <th pSortableColumn="name">Nome <p-sortIcon field="name"></p-sortIcon></th>
+                        <th pSortableColumn="unity">Unidade <p-sortIcon field="unity"></p-sortIcon></th>
+                        <th></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-biomarker>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="biomarker"></p-tableCheckbox>
+                        </td>
+                        <td style="width:90%; min-width:10rem;">
+                            <span class="p-column-title">Nome</span>
+                            {{biomarker.name}}
+                        </td>
+                        <td style="width:10%; min-width:10rem;">
+                            <span class="p-column-title">Unidade</span>
+                            {{biomarker.unity}}
+                        </td>
+                        <td>
+                            <div class="flex">
+                                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-buttongrid-link-edit mr-2" (click)="editBiomarker(biomarker)"></button>
+                                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-buttongrid-link-delete mr-2" (click)="deleteBiomarker(biomarker)"></button>
+                                <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-buttongrid-link-info" (click)="deleteBiomarker(biomarker)"></button>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <!-- MODAL -->
+
+        <p-dialog [(visible)]="biomarkerDialog" [style]="{width: '650px'}" header="Biomarcador" [modal]="true" class="p-fluid">
+            <ng-template pTemplate="content">
+                <!-- <img [src]="'assets/demo/images/product/' + product.image" [alt]="product.image" width="150" class="mt-0 mx-auto mb-5 block shadow-2" *ngIf="product.image"> -->
+
+                <!-- <div class="field">
+                    <label for="">FORMATADO</label>
+                    <p-editor [(ngModel)]="biomarker.description" [style]="{'height':'320px'}"></p-editor>
+                    <p>Value: {{biomarker.description||'empty'}}</p>
+                </div> -->
+
+                <div class="formgrid grid">
+                    <div class="field col">
+                        <label for="name">Nome</label>
+                        <input type="text" pInputText id="name" [(ngModel)]="biomarker.name" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !biomarker.name}"/>
+                        <small class="ng-dirty ng-invalid" *ngIf="submitted && !biomarker.name">Nome é obrigatório.</small>
+                    </div>
+                    <div class="field col-3">
+                        <label for="unity">Unidade</label>
+                        <input type="text" pInputText id="unity" [(ngModel)]="biomarker.unity" required [ngClass]="{'ng-invalid ng-dirty' : submitted && !biomarker.unity}"/>
+                        <small class="ng-dirty ng-invalid" *ngIf="submitted && !biomarker.unity">Unidade é obrigatório.</small>
+                    </div>
+                </div>
+
+                <!-- <div class="field">
+                    <label for="description">Descrição</label>
+                    <textarea id="description" pInputTextarea [(ngModel)]="biomarker.description" required [ngClass]="{'ng-invalid ng-dirty' : submitted && !biomarker.description}" rows="2" cols="20"></textarea>
+                    <small class="ng-dirty ng-invalid" *ngIf="submitted && !biomarker.description">Descrição é obrigatório.</small>
+                </div> -->
+
+                <div class="field">
+                    <label for="descriptionformater">Descrição</label>
+                    <p-editor id="descriptionformater" [(ngModel)]="biomarker.description" required [ngClass]="{'ng-invalid ng-dirty' : submitted && !biomarker.description}" [style]="{'height':'70px'}"></p-editor>
+                    <small class="ng-dirty ng-invalid" *ngIf="submitted && !biomarker.description">Descrição é obrigatório.</small>
+                </div>
+
+                <!-- <div class="field">
+                    <label for="status">Unidade</label>
+                    <p-dropdown [options]="dropDownUnities" [(ngModel)]="selectedUnity" placeholder="Selecione" optionLabel="name" [showClear]="true"></p-dropdown>
+
+                    <p-dropdown id="status" [options]="statuses" optionLabel="label" [(ngModel)]="dropDownUnities" placeholder="Select a Status">
+                        <ng-template pTemplate="selectedItem">
+                            <span *ngIf="biomarkers && biomarker.unity" [class]="'product-badge status-' + biomarker.unity.toLowerCase()">{{biomarker.unity}}</span>
+                        </ng-template>
+                        <ng-template let-status pTemplate="status">
+                            <span [class]="'product-badge status-' + status.value.toLowerCase()">{{status.label}}</span>
+                        </ng-template>
+                    </p-dropdown>
+                </div> -->
+
+                <div class="field">
+                    <label class="mb-3">Principal sistema associado</label>
+                    <div class="formgrid grid">
+                        <div class="field-radiobutton col-6">
+                            <p-radioButton id="category1" name="bodyimagetype" value="1" [(ngModel)]="biomarker.bodyImageType"></p-radioButton>
+                            <label for="category1">Circulatorio</label>
+                        </div>
+                        <div class="field-radiobutton col-6">
+                            <p-radioButton id="category2" name="bodyimagetype" value="2" [(ngModel)]="biomarker.bodyImageType"></p-radioButton>
+                            <label for="category2">Digestivo</label>
+                        </div><br/>
+                        <div class="field-radiobutton col-6">
+                            <p-radioButton id="category3" name="bodyimagetype" value="3" [(ngModel)]="biomarker.bodyImageType"></p-radioButton>
+                            <label for="category3">Endocrino</label>
+                        </div>
+                        <div class="field-radiobutton col-6">
+                            <p-radioButton id="category4" name="bodyimagetype" value="4" [(ngModel)]="biomarker.bodyImageType"></p-radioButton>
+                            <label for="category4">Esquelético</label>
+                        </div>
+                        <div class="field-radiobutton col-6">
+                            <p-radioButton id="category5" name="bodyimagetype" value="5" [(ngModel)]="biomarker.bodyImageType"></p-radioButton>
+                            <label for="category5">Linfático</label>
+                        </div>
+                        <div class="field-radiobutton col-6">
+                            <p-radioButton id="category6" name="bodyimagetype" value="6" [(ngModel)]="biomarker.bodyImageType"></p-radioButton>
+                            <label for="category6">Muscular</label>
+                        </div>
+                        <div class="field-radiobutton col-6">
+                            <p-radioButton id="category7" name="bodyimagetype" value="7" [(ngModel)]="biomarker.bodyImageType"></p-radioButton>
+                            <label for="category7">Nervoso</label>
+                        </div>
+                        <div class="field-radiobutton col-6">
+                            <p-radioButton id="category8" name="bodyimagetype" value="8" [(ngModel)]="biomarker.bodyImageType"></p-radioButton>
+                            <label for="category8">Reprodutor feminino</label>
+                        </div>
+                        <div class="field-radiobutton col-6">
+                            <p-radioButton id="category9" name="bodyimagetype" value="9" [(ngModel)]="biomarker.bodyImageType"></p-radioButton>
+                            <label for="category9">Reprodutor masculino</label>
+                        </div>
+                        <div class="field-radiobutton col-6">
+                            <p-radioButton id="category10" name="bodyimagetype" value="10" [(ngModel)]="biomarker.bodyImageType"></p-radioButton>
+                            <label for="category10">Respiratório</label>
+                        </div>
+                        <div class="field-radiobutton col-6">
+                            <p-radioButton id="category11" name="bodyimagetype" value="11" [(ngModel)]="biomarker.bodyImageType"></p-radioButton>
+                            <label for="category11">Urinário</label>
+                        </div>
+                        <div class="field-radiobutton col-6">
+                            <p-radioButton id="category0" name="bodyimagetype" value="0" [(ngModel)]="biomarker.bodyImageType"></p-radioButton>
+                            <label for="category0">Nenhum</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="aboveImpact">Consequências dos valores acima da faixa</label>
+                    <!-- <textarea id="aboveImpact" pInputTextarea [(ngModel)]="biomarker.aboveImpact" required rows="2" cols="20"></textarea> -->
+                    <p-editor id="aboveImpact" [(ngModel)]="biomarker.aboveImpact" required [ngClass]="{'ng-invalid ng-dirty' : submitted && !biomarker.aboveImpact}" [style]="{'height':'70px'}"></p-editor>
+                    <small class="ng-dirty ng-invalid" *ngIf="submitted && !biomarker.aboveImpact">Consequências dos valores acima da faixa é obrigatório.</small>
+                </div>
+                <div class="field">
+                    <label for="belowImpact">Consequências dos valores abaixo da faixa é obrigatório</label>
+                    <!-- <textarea id="belowImpact" pInputTextarea [(ngModel)]="biomarker.belowImpact" required rows="2" cols="20"></textarea> -->
+                    <p-editor id="belowImpact" [(ngModel)]="biomarker.belowImpact" required [ngClass]="{'ng-invalid ng-dirty' : submitted && !biomarker.belowImpact}" [style]="{'height':'70px'}"></p-editor>
+                    <small class="ng-dirty ng-invalid" *ngIf="submitted && !biomarker.belowImpact">Consequências dos valores abaixo da faixa é obrigatório.</small>
+                </div>
+
+                <!-- <div class="formgrid grid">
+                    <div class="field col">
+                        <label for="price">Price</label>
+                        <p-inputNumber id="price" [(ngModel)]="biomarker.unity" mode="currency" currency="USD" locale="en-US"></p-inputNumber>
+                    </div>
+                    <div class="field col">
+                        <label for="quantity">Quantity</label>
+                        <p-inputNumber id="quantity" [(ngModel)]="biomarker.unity"></p-inputNumber>
+                    </div>
+                </div> -->
+            </ng-template>
+
+            <ng-template pTemplate="footer">
+                <button pButton pRipple label="Fechar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+                <button pButton pRipple label="Salvar" icon="pi pi-check" class="p-button-text" (click)="saveBiomarker()"></button>
+            </ng-template>
+        </p-dialog>
+
+        <p-dialog [(visible)]="deleteBiomarkerDialog" header="Confirmação" [modal]="true" [style]="{width:'450px'}">
+            <div class="flex align-items-center justify-content-center">
+                <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem"></i>
+                <span *ngIf="biomarker">Tem certeza que deseja remover <b>{{biomarker.name}}</b>?</span>
+            </div>
+            <ng-template pTemplate="footer">
+                <button pButton pRipple icon="pi pi-times" class="p-button-text" label="Não" (click)="deleteBiomarkerDialog = false"></button>
+                <button pButton pRipple icon="pi pi-check" class="p-button-text" label="Sim" (click)="confirmDelete()"></button>
+            </ng-template>
+        </p-dialog>
+
+        <p-dialog [(visible)]="deleteBiomarkersDialog" header="Confirmação" [modal]="true" [style]="{width:'450px'}">
+            <div class="flex align-items-center justify-content-center">
+                <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem"></i>
+                <span>Tem certeza que deseja remover os biomarcadores selecionados?</span>
+            </div>
+            <ng-template pTemplate="footer">
+                <button pButton pRipple icon="pi pi-times" class="p-button-text" label="Não" (click)="deleteBiomarkersDialog = false"></button>
+                <button pButton pRipple icon="pi pi-check" class="p-button-text" label="Sim" (click)="confirmDeleteSelected()"></button>
+            </ng-template>
+        </p-dialog>
+    </div>
+</div>

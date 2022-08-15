@@ -1,0 +1,205 @@
+/* You can add global styles to this file, and also import other style files */
+
+$gutter: 1rem; //for primeflex grid system
+@import "assets/layout/styles/layout/layout.scss";
+
+/* PrimeNG */
+@import "../node_modules/primeng/resources/primeng.min.css";
+@import "../node_modules/primeflex/primeflex.scss";
+@import "../node_modules/primeicons/primeicons.css";
+
+/* Code Highlight */
+@import "../node_modules/prismjs/themes/prism-coy.css";
+
+/* Demos
+@import "assets/demo/styles/flags/flags.css";
+@import "assets/demo/styles/badges.scss";*/
+
+.p-button.p-buttongrid-link-edit, .p-buttonset.p-buttongrid-link-edit > .p-button, .p-splitbutton.p-buttongrid-link-edit > .p-button {
+    color: #22C55E;
+    background: transparent;
+    border: transparent;
+}
+.p-button.p-buttongrid-link-edit:enabled:hover, .p-buttonset.p-buttongrid-link-edit > .p-button:enabled:hover, .p-splitbutton.p-buttongrid-link-edit > .p-button:enabled:hover {
+    background: #22C55E;
+    border-color: #22C55E;
+}
+.p-button.p-buttongrid-link-edit:enabled:focus, .p-buttonset.p-buttongrid-link-edit > .p-button:enabled:focus, .p-splitbutton.p-buttongrid-link-edit > .p-button:enabled:focus {
+    box-shadow: 0 0 0 1px #22C55E;
+}
+.p-button.p-buttongrid-link-edit:enabled:active, .p-buttonset.p-buttongrid-link-edit > .p-button:enabled:active, .p-splitbutton.p-buttongrid-link-edit > .p-button:enabled:active {
+    background: #22C55E;
+    color: #121212;
+    border-color: #22C55E;
+}
+.p-button.p-buttongrid-link-edit.p-button-outlined, .p-buttonset.p-buttongrid-link-edit > .p-button.p-button-outlined, .p-splitbutton.p-buttongrid-link-edit > .p-button.p-button-outlined {
+    background-color: transparent;
+    color: #22C55E;
+    border: 1px solid;
+}
+.p-button.p-buttongrid-link-edit.p-button-outlined:enabled:hover, .p-buttonset.p-buttongrid-link-edit > .p-button.p-button-outlined:enabled:hover, .p-splitbutton.p-buttongrid-link-edit > .p-button.p-button-outlined:enabled:hover {
+    background: rgba(197, 225, 165, 0.04);
+    color: #22C55E;
+    border: 1px solid;
+}
+.p-button.p-buttongrid-link-edit.p-button-outlined:enabled:active, .p-buttonset.p-buttongrid-link-edit > .p-button.p-button-outlined:enabled:active, .p-splitbutton.p-buttongrid-link-edit > .p-button.p-button-outlined:enabled:active {
+    background: rgba(197, 225, 165, 0.16);
+    color: #22C55E;
+    border: 1px solid;
+}
+.p-button.p-buttongrid-link-edit.p-button-text, .p-buttonset.p-buttongrid-link-edit > .p-button.p-button-text, .p-splitbutton.p-buttongrid-link-edit > .p-button.p-button-text {
+    background-color: transparent;
+    color: #22C55E;
+    border-color: transparent;
+}
+.p-button.p-buttongrid-link-edit.p-button-text:enabled:hover, .p-buttonset.p-buttongrid-link-edit > .p-button.p-button-text:enabled:hover, .p-splitbutton.p-buttongrid-link-edit > .p-button.p-button-text:enabled:hover {
+    background: rgba(197, 225, 165, 0.04);
+    border-color: transparent;
+    color: #22C55E;
+}
+.p-button.p-buttongrid-link-edit.p-button-text:enabled:active, .p-buttonset.p-buttongrid-link-edit > .p-button.p-button-text:enabled:active, .p-splitbutton.p-buttongrid-link-edit > .p-button.p-button-text:enabled:active {
+    background: rgba(197, 225, 165, 0.16);
+    border-color: transparent;
+    color: #22C55E;
+}
+
+
+.p-button.p-buttongrid-link-delete, .p-buttonset.p-buttongrid-link-delete > .p-button, .p-splitbutton.p-buttongrid-link-delete > .p-button {
+    color: #EF4444;
+    background: transparent;
+    border: transparent;
+}
+.p-button.p-buttongrid-link-delete:enabled:hover, .p-buttonset.p-buttongrid-link-delete > .p-button:enabled:hover, .p-splitbutton.p-buttongrid-link-delete > .p-button:enabled:hover {
+    background: #EF4444;
+    border-color: #EF4444;
+}
+.p-button.p-buttongrid-link-delete:enabled:focus, .p-buttonset.p-buttongrid-link-delete > .p-button:enabled:focus, .p-splitbutton.p-buttongrid-link-delete > .p-button:enabled:focus {
+    box-shadow: 0 0 0 1px #EF4444;
+}
+.p-button.p-buttongrid-link-delete:enabled:active, .p-buttonset.p-buttongrid-link-delete > .p-button:enabled:active, .p-splitbutton.p-buttongrid-link-delete > .p-button:enabled:active {
+    background: #EF4444;
+    color: #121212;
+    border-color: #EF4444;
+}
+.p-button.p-buttongrid-link-delete.p-button-outlined, .p-buttonset.p-buttongrid-link-delete > .p-button.p-button-outlined, .p-splitbutton.p-buttongrid-link-delete > .p-button.p-button-outlined {
+    background-color: transparent;
+    color: #EF4444;
+    border: 1px solid;
+}
+.p-button.p-buttongrid-link-delete.p-button-outlined:enabled:hover, .p-buttonset.p-buttongrid-link-delete > .p-button.p-button-outlined:enabled:hover, .p-splitbutton.p-buttongrid-link-delete > .p-button.p-button-outlined:enabled:hover {
+    background: rgba(197, 225, 165, 0.04);
+    color: #EF4444;
+    border: 1px solid;
+}
+.p-button.p-buttongrid-link-delete.p-button-outlined:enabled:active, .p-buttonset.p-buttongrid-link-delete > .p-button.p-button-outlined:enabled:active, .p-splitbutton.p-buttongrid-link-delete > .p-button.p-button-outlined:enabled:active {
+    background: rgba(197, 225, 165, 0.16);
+    color: #EF4444;
+    border: 1px solid;
+}
+.p-button.p-buttongrid-link-delete.p-button-text, .p-buttonset.p-buttongrid-link-delete > .p-button.p-button-text, .p-splitbutton.p-buttongrid-link-delete > .p-button.p-button-text {
+    background-color: transparent;
+    color: #EF4444;
+    border-color: transparent;
+}
+.p-button.p-buttongrid-link-delete.p-button-text:enabled:hover, .p-buttonset.p-buttongrid-link-delete > .p-button.p-button-text:enabled:hover, .p-splitbutton.p-buttongrid-link-delete > .p-button.p-button-text:enabled:hover {
+    background: rgba(197, 225, 165, 0.04);
+    border-color: transparent;
+    color: #EF4444;
+}
+.p-button.p-buttongrid-link-delete.p-button-text:enabled:active, .p-buttonset.p-buttongrid-link-delete > .p-button.p-button-text:enabled:active, .p-splitbutton.p-buttongrid-link-delete > .p-button.p-button-text:enabled:active {
+    background: rgba(197, 225, 165, 0.16);
+    border-color: transparent;
+    color: #EF4444;
+}
+
+.p-button.p-buttongrid-link-info, .p-buttonset.p-buttongrid-link-info > .p-button, .p-splitbutton.p-buttongrid-link-info > .p-button {
+    color: #4baaf5;
+    background: transparent;
+    border: transparent;
+}
+.p-button.p-buttongrid-link-info:enabled:hover, .p-buttonset.p-buttongrid-link-info > .p-button:enabled:hover, .p-splitbutton.p-buttongrid-link-info > .p-button:enabled:hover {
+    background: #4baaf5;
+    border-color: #4baaf5;
+}
+.p-button.p-buttongrid-link-info:enabled:focus, .p-buttonset.p-buttongrid-link-info > .p-button:enabled:focus, .p-splitbutton.p-buttongrid-link-info > .p-button:enabled:focus {
+    box-shadow: 0 0 0 1px #4baaf5;
+}
+.p-button.p-buttongrid-link-info:enabled:active, .p-buttonset.p-buttongrid-link-info > .p-button:enabled:active, .p-splitbutton.p-buttongrid-link-info > .p-button:enabled:active {
+    background: #4baaf5;
+    color: #121212;
+    border-color: #4baaf5;
+}
+.p-button.p-buttongrid-link-info.p-button-outlined, .p-buttonset.p-buttongrid-link-info > .p-button.p-button-outlined, .p-splitbutton.p-buttongrid-link-info > .p-button.p-button-outlined {
+    background-color: transparent;
+    color: #4baaf5;
+    border: 1px solid;
+}
+.p-button.p-buttongrid-link-info.p-button-outlined:enabled:hover, .p-buttonset.p-buttongrid-link-info > .p-button.p-button-outlined:enabled:hover, .p-splitbutton.p-buttongrid-link-info > .p-button.p-button-outlined:enabled:hover {
+    background: rgba(197, 225, 165, 0.04);
+    color: #4baaf5;
+    border: 1px solid;
+}
+.p-button.p-buttongrid-link-info.p-button-outlined:enabled:active, .p-buttonset.p-buttongrid-link-info > .p-button.p-button-outlined:enabled:active, .p-splitbutton.p-buttongrid-link-info > .p-button.p-button-outlined:enabled:active {
+    background: rgba(197, 225, 165, 0.16);
+    color: #4baaf5;
+    border: 1px solid;
+}
+.p-button.p-buttongrid-link-info.p-button-text, .p-buttonset.p-buttongrid-link-info > .p-button.p-button-text, .p-splitbutton.p-buttongrid-link-info > .p-button.p-button-text {
+    background-color: transparent;
+    color: #4baaf5;
+    border-color: transparent;
+}
+.p-button.p-buttongrid-link-info.p-button-text:enabled:hover, .p-buttonset.p-buttongrid-link-info > .p-button.p-button-text:enabled:hover, .p-splitbutton.p-buttongrid-link-info > .p-button.p-button-text:enabled:hover {
+    background: rgba(197, 225, 165, 0.04);
+    border-color: transparent;
+    color: #4baaf5;
+}
+.p-button.p-buttongrid-link-info.p-button-text:enabled:active, .p-buttonset.p-buttongrid-link-info > .p-button.p-button-text:enabled:active, .p-splitbutton.p-buttongrid-link-info > .p-button.p-button-text:enabled:active {
+    background: rgba(197, 225, 165, 0.16);
+    border-color: transparent;
+    color: #4baaf5;
+}
+
+
+.bg {
+    /* The image used */
+    background-image: url("./assets/bg.svg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Alterações para ficar na tela cheia sem barra de rolagem */
+/* Removido footer do arquivo app.layout.component.html - basta descomentar se desejar exibir novamente */
+
+// .p-datatable .p-datatable-thead > tr > th {
+//     text-align: left;
+//     padding: 1rem 1rem;
+//     border: 1px solid #dee2e6;
+//     border-width: 0 0 1px 0;
+//     font-weight: 700;
+//     color: #343a40;
+//     background: #f8f9fa;
+//     transition: box-shadow 0.2s;
+// }
+
+.p-datatable .p-datatable-tbody > tr > td {
+    text-align: left;
+    border: 1px solid #dee2e6;
+    border-width: 0 0 1px 0;
+    padding: 0rem 1rem; /*padding: 1rem 1rem;*/
+}
+
+.card {
+    background: var(--surface-card);
+    border: 1px solid var(--surface-border);
+    padding: 2rem;
+    margin-bottom: -1rem !important; /*margin-bottom: 2rem;*/
+    box-shadow: var(--card-shadow);
+    border-radius: 12px;
+}
